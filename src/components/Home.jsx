@@ -13,27 +13,33 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const getFoldersFromS3 = async () => {
-      const s3 = new AWS.S3();
-      const params = {
-        Bucket: bucketName,
-        Delimiter: '/',
-        Prefix: 'public/'
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken');
+    if (accessToken || refreshToken) {
+      const getFoldersFromS3 = async () => {
+        const s3 = new AWS.S3();
+        const params = {
+          Bucket: bucketName,
+          Delimiter: '/',
+          Prefix: 'public/'
+        };
+    
+        try {
+          const response = await s3.listObjectsV2(params).promise();
+          const folders = response.CommonPrefixes.map((commonPrefix) => commonPrefix.Prefix);
+          //return folders;
+          setFolderList(folders)
+          //console.log('List of folders:', folderList);
+        } catch (error) {
+          console.error('Error retrieving folders from S3 bucket:', error);
+          return [];
+        }
       };
-  
-      try {
-        const response = await s3.listObjectsV2(params).promise();
-        const folders = response.CommonPrefixes.map((commonPrefix) => commonPrefix.Prefix);
-        //return folders;
-        setFolderList(folders)
-        //console.log('List of folders:', folderList);
-      } catch (error) {
-        console.error('Error retrieving folders from S3 bucket:', error);
-        return [];
-      }
-    };
-    getFoldersFromS3()
-  }, [])
+      getFoldersFromS3()
+    } else {
+      navigate('/signin')
+    }
+  }, [navigate])
   
   return (
     <div className="container">

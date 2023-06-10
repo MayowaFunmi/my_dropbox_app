@@ -29,7 +29,7 @@ const SignIn = () => {
       localStorage.setItem('accessToken', userSession.accessToken.jwtToken);
       localStorage.setItem('refreshToken', userSession.refreshToken.token);
       notifySuccess('Login Successful!!!');
-      navigate('/profile');
+      navigate('/');
     } catch (error) {
       notifyError(error);
     }

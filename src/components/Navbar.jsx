@@ -33,17 +33,8 @@ const Navbar = () => {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/">
-            <li>Profile</li>
-          </Link>
           <Link to="/upload_file">
             <li>Upload File</li>
-          </Link>
-          <Link to="/">
-            <li>Tags</li>
-          </Link>
-          <Link to="/">
-            <li>Change Password</li>
           </Link>
           <Link to="/">
             <button className="primaryBtn" onClick={() => logoutUser()}>
