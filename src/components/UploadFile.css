@@ -1,0 +1,38 @@
+.upload-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .preview {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+  
+  .preview img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  button[type='submit'] {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button[type='submit']:hover {
+    background-color: #0069d9;
+  }
+  

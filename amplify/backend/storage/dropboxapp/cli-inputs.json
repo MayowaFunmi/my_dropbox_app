@@ -1,0 +1,14 @@
+{
+  "resourceName": "dropboxapp",
+  "policyUUID": "4df48bf5",
+  "bucketName": "dropboxfilesbucket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
